@@ -11,7 +11,7 @@ then
     echo "Version already released"
 else
     git rev-parse HEAD > lagom/githash.txt
-    pipenv run flit publish
+    pipenv run flit --repository testpypi publish
     git tag -a "$version" -m "$version"
     git push origin "$version"
 fi
